@@ -1,2 +1,2 @@
 # ipa-stata-training
-Collection of do files for IPA Stata Training
+Collection of practice do-files from IPA Stata training
