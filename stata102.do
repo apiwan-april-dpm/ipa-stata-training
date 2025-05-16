@@ -1,5 +1,7 @@
-cd "/Users/puengapiwan/Desktop/Github Repositories/ipa-stata-training/Data"
+cd "/Users/puengapiwan/Desktop/Github Repositories/Data"
 use "Stata 102.dta", clear
+
+
 
 *** Chapter 1: Naming & Labeling Variables
 rename (educ addressdur areadur) (education address_duration area_duration)
@@ -50,6 +52,7 @@ tabulate castecode ///
         missing nolabel
 
   
+
 *** Chapter 2: Variable Types
 // Convert string variables into numeric variables 
 destring hhid, generate(hhid_num)
@@ -81,6 +84,8 @@ codebook thanavisitreason visitreason2
 decode visitreason, generate(visitreasonstr)
 codebook visitreasonstr
 
+
+
 *** Chapter 3: Unique IDs & Duplicates
 isid hhid // to check if there're duplicate IDs
 duplicates list hhid // find duplicate IDs
@@ -88,6 +93,8 @@ duplicates drop // searches for observations that are identical, and drops all b
 
 list hhid sex age educ occupation if hhid == "1802011" | hhid == "1813023"
 browse if hhid == "1802011" | hhid == "1813023"
+
+
 
 *** Chapter 4: Macros and Locals
 codebook age
@@ -113,6 +120,8 @@ display "`num'"
 local num 1 * 2 + 3 // stores the string as-is in the local `num'
 display "`num'"
 
+
+
 *** Chapter 5: Loops
 foreach letter in a b c d { // defines a local macro called letter, which take on values a, b, c, d
         display "`letter'"
@@ -123,12 +132,16 @@ foreach var in sex age educ {
         list hhid `var' if `var' == .
 		}
 
+
+
 *** Chapter 6: Importing
 import excel using "Demo Info.xlsx", clear firstrow // treat the first row as variable names
 browse
 
 import delimited using "Demo Info.csv", clear varnames(1)
 browse
+
+
 
 *** Chapter 7: Merging
 //  merge "New Variables" into our main data "Stata 102"
@@ -143,3 +156,14 @@ browse hhid children grandchildren if dup == 1 // values of both new variables w
 
 tab _merge // 1 = from the master dataset, 2 = from using dataset, and 3 in both datasets 
 drop _merge
+
+
+
+*** Chapter 8: Appending
+use "New Observations.dta", clear
+browse
+
+use "Stata 102.dta", clear
+append using "Raw/New Observations.dta" // add observations to existing variables
+sort hhid
+list hhid in -10/-1 // list the last 10 observations
