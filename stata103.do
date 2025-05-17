@@ -151,7 +151,7 @@ egen maxage = max(age)
 bysort sex: egen minage = min(age) // minimum age within each group of sex
 browse sex age minage
 
-// creates a new variable "literate" that contains the sum of literateyn for each group
+// creates a new variable "literate" that contains the sum of literate individuals for each group
 bysort surveyorid: egen literate = total(literateyn)
 browse surveyorid literateyn literate
 
