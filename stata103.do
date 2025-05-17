@@ -1,4 +1,3 @@
-cd "/Users/puengapiwan/Desktop/Github Repositories/Data"
 use "Stata 103", clear
 describe, short
 sort hhid
