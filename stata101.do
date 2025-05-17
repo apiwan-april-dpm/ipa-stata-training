@@ -1,5 +1,5 @@
 clear // clear out any previous dataset 
-cd "/Users/puengapiwan/Desktop/Github Repositories/ipa-stata-training"
+cd "/Users/puengapiwan/Desktop/Github Repositories/Data"
 
 *** Chapter 1-2: Inspecting Data (sum, tab, list)
 summarize math // n, mean, sd, min, max
