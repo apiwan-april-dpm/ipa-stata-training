@@ -1,4 +1,3 @@
-cd "/Users/puengapiwan/Desktop/Github Repositories/Data"
 use "Stata 102.dta", clear
 
 
