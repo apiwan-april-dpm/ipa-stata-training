@@ -226,4 +226,26 @@ charlist newcaste
 
 
 *** Chapter 6: Exporting
+// Export data
+export excel hhid surveyid sex age educ using "test", firstrow(variables) replace
+export delimited using "test2", replace // export csv
 
+// Export summary statistics or orthogonality tables
+ssc install orth_out
+orth_out age literateyn educ using "summary_stat", by(sex) se colnum replace
+
+// Export regression results 
+ssc install estout
+eststo: regress literateyn sex age
+eststo: regress literateyn sex age educ
+esttab using "regression_table", se replace
+
+// Export graphs
+graph box age, over(occupation, label(angle(45))) // boxplot
+
+graph bar age, over(occupation, label(angle(45))) ///
+    title("Mean Age by Occupation") ///
+    ytitle("Mean of Age") ///
+    blabel(bar, format(%9.1f))
+	
+graph export "barchart.png", replace
