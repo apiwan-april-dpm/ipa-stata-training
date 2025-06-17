@@ -1,5 +1,5 @@
 # ipa-stata-training
-Collection of practice do-files from IPA Stata training
+Collection of practice do-files from J-PAL & IPA Stata training
 - Stata101: Inspecting, Conditions, Saving and Sorting, and Manipulating Variables
 - Stata102: Labeling, Variable Types, Unique IDs & Duplicates, Macros and Locals, Loops, Importing and Merging
 - Stata103: Logical Expressions, Dummy Variables, Subscripting, For-loops & macros, _N and _n, by and Egen
